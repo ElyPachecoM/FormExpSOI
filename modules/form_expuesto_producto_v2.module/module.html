@@ -1,0 +1,363 @@
+{# nameId custom_id field of setting custom module or default name module filtered #}
+{% set nameId = module.settings.custom_id ? module.settings.custom_id : name|regex_replace("[^a-zA-Z0-9]","") %}
+    {% set mainClass = 'form_expuesto' %}
+    {% set classCssModule = [mainClass, name] %}
+    {% do classCssModule.append(module.settings.custom_class) if module.settings.custom_class %}
+    
+    {% if widget_data.page_settings.page_type == 'is_product' and widget_data.page_settings.producto %}
+        {% set ProductObject =  widget_data.page_settings.producto.columns %}
+    {% endif %}
+    <input type="hidden" id="IdProdOnl" value = '{{ProductObject['id_producto_onl_lx']}}'> 
+    <div class="modal1 step1 bd-example-modal-lg card--form-exp m-class" data-id="form-expuesto-producto" id="ModalCalculadoraVue" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl nvoAncho" role="document" id="formulario-expuesto">
+                <div class="modal-content">
+                    <div class="modal-body-FE">
+                        <div class="d-flex align-items-center row ancho-modal" style="margin:auto">
+                            <div class="visibleonlimobile div-card-azul">
+                                <div id="info-res" class="hidden res-card">
+                                    <div class="div-tit-res">
+                                        <p class="mod-camp">¡Gracias por dejarnos tus datos!</p>
+                                    </div>
+                                    <div class="subtitle-res">
+                                        <p id="alumno">Usuario </p>
+                                        <p> Solicitaste información sobre:</p>
+                                    </div>
+                                    <div class="datos">
+                                        <ul class="d-list mt-2">
+                                            <li class="list-datos d-flex align-items-center">
+                                                <div>
+                                                    <i class="icon-u-modalidades-de-estudio"></i>
+                                                </div>
+                                                <div id="modalidad" class="list-bl">Modalidad En línea</div>
+                                            </li>
+                                            <li class="list-datos d-flex align-items-center">
+                                                <div>
+                                                    <i class="icon-u-licenciaturas"></i>
+                                                </div>
+                                                <div id="bl" class="list-bl">Licenciatura en Administración de Empresas
+                                                </div>
+                                            </li>
+                                            <li class="list-datos d-flex align-items-center">
+                                                <div>
+                                                    <i class="icon-u-campus"></i>
+                                                </div>
+                                                <div id="nombreCampus" class="list-bl">Campus En Línea</div>
+                                            </li>
+                                            <li class="list-datos d-flex align-items-center">
+                                                <div>
+                                                    <i class="icon-ciclo"></i>
+                                                </div>
+                                                <div id="ciclo" class="list-bl">Ciclo: Septiembre</div>
+                                            </li>
+                                        </ul>
+                                    </div>                                
+                                </div>
+                                
+                                <div id="res-card" class="res-campus hidden">
+                                    <div class="dtn-text">                                    
+                                        <p>
+                                            Únete a la comunidad académica de la UNITEC y da el primer paso hacia tu éxito profesional.
+                                        </p>
+                                        <div class="row">
+                                            <div class="botn-div ctaCalc">
+                                                <a href="https://informes.unitec.mx/calculadora-de-beca/" class="btn btn-primary btn-frm btn-card-blue tyPg calcubtn">
+                                                    Calcula tu beca
+                                                </a>
+                                            </div>                                    
+                                        </div>
+                                        <p class="subCanales">
+                                            ¡Resuelve tus dudas!
+                                        </p>
+                                        <div class="canales-entrantes" style="cursor:pointer;">
+                                            <div class="div-ce-b">
+                                                <a class="whatssbtn" aria-label="Contactar por Whatsapp" target="_blank" data-link="whatsapp">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" class="icon-ce"
+                                                        viewBox="0 0 24 24" version="1.1">
+                                                        <g id="Atom/Icon/whats-Copy" stroke="none" stroke-width="1" fill="none"
+                                                            fill-rule="evenodd">
+                                                            <path
+                                                                d="M12.0025,2 L11.9975,2 C6.48375,2 2,6.485 2,12 C2,14.1875 2.705,16.215 3.90375,17.86125 L2.6575,21.57625 L6.50125,20.3475 C8.0825,21.395 9.96875,22 12.0025,22 C17.51625,22 22,17.51375 22,12 C22,6.48625 17.51625,2 12.0025,2 Z M17.7855099,16.3914814 C17.5410603,17.1329527 16.5708614,17.7478976 15.7969822,17.9274833 C15.2675525,18.0485676 14.5760008,18.145163 12.2480301,17.1084637 C9.27030484,15.783339 7.35270549,12.5331099 7.20324926,12.3222328 C7.06012593,12.1113557 6,10.6012032 6,9.03935186 C6,7.4775005 6.73841507,6.71698229 7.03606094,6.39046284 C7.28051053,6.12244479 7.68454897,6 8.07212189,6 C8.19751313,6 8.31023859,6.00680249 8.41156484,6.01224448 C8.70921071,6.02584946 8.85866693,6.04489642 9.05498655,6.54964107 C9.29943614,7.1822725 9.89472788,8.74412386 9.96565626,8.90466259 C10.0378512,9.06520132 10.1100462,9.28288095 10.0087199,9.49375809 C9.91372655,9.71143772 9.83013239,9.80803306 9.68067617,9.99306075 C9.53121994,10.1780884 9.38936319,10.3195802 9.23990696,10.5182129 C9.10311652,10.6909961 8.94859398,10.8760238 9.12084862,11.1957407 C9.29310325,11.5086552 9.88839499,12.5521569 10.7648671,13.3902235 C11.8959214,14.4718192 12.812924,14.8173856 13.1409677,14.9643193 C13.3854173,15.0731592 13.6767303,15.0473097 13.8553178,14.843235 C14.0820353,14.580659 14.3619491,14.1452997 14.6469292,13.7167429 C14.8495817,13.4092705 15.1054305,13.3711765 15.3739451,13.4800163 C15.6475259,13.5820537 17.0952248,14.3507349 17.3928707,14.5099131 C17.6905165,14.6704518 17.8868361,14.7466397 17.9590311,14.881329 C18.0299595,15.0160183 18.0299595,15.6486497 17.7855099,16.3914814 Z"
+                                                                id="Shape" fill="#27D36A" fill-rule="nonzero"></path>
+                                                        </g>
+                                                    </svg>
+                                                </a>
+                                                <p>Escríbenos un WhatsApp</p>
+                                            </div>
+                                            <!-- href="https://api.whatsapp.com/send?phone=525529688928&amp;text=Hola%2C%20estoy%20en%20la%20página%20de%20internet%20y%20quiero%20más%20información" -->
+                                            <!-- <div class="div-ce-b">
+                                                <a data-gtm-tr="Call to action" class="chatbtn"
+                                                    href="#chat" onclick="javascript:abrirchat();">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" class="icon-ce"
+                                                        viewBox="0 0 24 24" version="1.1">
+                                                        <g id="Atom/Icon/Chat/Green-Copy" stroke="none" stroke-width="1"
+                                                            fill="none" fill-rule="evenodd">
+                                                            <g id="Shape-2" transform="translate(2.000000, 3.000000)"
+                                                                fill="#3DAE99" fill-rule="nonzero">
+                                                                <path
+                                                                    d="M17.6908203,0 L2.30917969,0 C1.03582031,0 0,1.01702412 0,2.26719138 L0,11.6418926 C0,12.8920982 1.03582031,13.9090839 2.30917969,13.9090839 L7.02835938,13.9090839 L9.28585938,17.6031696 C9.43585938,17.8494292 9.70667969,18 10.0000391,18 C10.2933984,18 10.5642188,17.8494675 10.7142188,17.6031696 L12.9716797,13.9090839 L17.6908594,13.9090839 C18.9641797,13.9090839 20,12.8920982 20,11.6418926 L20,2.26719138 C20,1.01702412 18.9641797,0 17.6908203,0 Z M5,8 C4.07918688,8 3.33333333,7.25418551 3.33333333,6.33333333 C3.33333333,5.41252021 4.07914782,4.66666667 5,4.66666667 C5.92081312,4.66666667 6.66666667,5.41248115 6.66666667,6.33333333 C6.66666667,7.25414645 5.92081312,8 5,8 Z M10.3333333,8 C9.41252021,8 8.66666667,7.25418551 8.66666667,6.33333333 C8.66666667,5.41252021 9.41248115,4.66666667 10.3333333,4.66666667 C11.2541855,4.66666667 12,5.41248115 12,6.33333333 C12,7.25414645 11.2541465,8 10.3333333,8 Z M15,8 C14.0791869,8 13.3333333,7.25418551 13.3333333,6.33333333 C13.3333333,5.41252021 14.0791478,4.66666667 15,4.66666667 C15.9208131,4.66666667 16.6666667,5.41248115 16.6666667,6.33333333 C16.6666667,7.25414645 15.9208131,8 15,8 Z"
+                                                                    id="Shape"></path>
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+    
+                                                </a>
+                                                <p>Inicia un chat</p>
+                                            </div>-->
+                                            <div class="div-ce-b">
+                                                <a href="tel:8007864832" class="callbtn" aria-label="Contactar por llamada">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" class="icon-ce"
+                                                        viewBox="0 0 24 24" version="1.1">
+                                                        <g id="Atom/Icon/Phone-Copy" stroke="none" stroke-width="1" fill="none"
+                                                            fill-rule="evenodd">
+                                                            <g id="noun_phone-call_223635"
+                                                                transform="translate(2.000000, 2.000000)" fill="#003053"
+                                                                fill-rule="nonzero">
+                                                                <path
+                                                                    d="M9.93289308,14.3970255 C10.2327377,14.5906209 10.5539997,14.7196845 10.8752618,14.8917693 C11.0251841,14.9778118 11.1536889,14.9563011 11.2821937,14.8272375 C11.7533781,14.3324937 12.2459799,13.8592604 12.7171643,13.3860271 C13.3382709,12.7622196 14.1307174,12.7622196 14.7732415,13.3860271 C15.5442704,14.1604088 16.3152994,14.9347905 17.0863283,15.7091723 C17.7288525,16.3544904 17.7288525,17.1503827 17.0863283,17.8172114 C16.6579789,18.2689341 16.1867946,18.6776355 15.7798626,19.1508688 C15.1801734,19.8176975 14.430562,20.0543141 13.5524456,19.9897823 C12.2888149,19.9252505 11.1322714,19.4950385 10.018563,18.9572734 C7.53413635,17.7526796 5.41380674,16.0748525 3.65757413,13.9453028 C2.30827347,12.3535181 1.23739993,10.6541805 0.530623391,8.71822618 C0.187943857,7.79327024 -0.0690657923,6.84680369 0.0166040909,5.83580533 C0.0594390326,5.21199784 0.295031212,4.67423275 0.744798099,4.24402069 C1.23739993,3.77078741 1.70858429,3.27604354 2.17976864,2.80281026 C2.82229277,2.17900277 3.61473919,2.17900277 4.23584584,2.80281026 C4.62136032,3.19000112 5.00687479,3.57719198 5.39238927,3.96438284 C5.77790374,4.3515737 6.14200075,4.71725396 6.52751522,5.10444482 C7.19145682,5.77127352 7.19145682,6.54565524 6.52751522,7.21248395 C6.05633086,7.68571722 5.5851465,8.15895049 5.11396215,8.63218377 C4.98545732,8.76124739 4.98545732,8.8472898 5.04970973,9.01937463 C5.3709718,9.77224575 5.82073868,10.4605851 6.33475798,11.0843925 C7.36279658,12.3750287 8.54075748,13.5150907 9.93289308,14.3970255 Z M9.1832816,0.544196914 C9.01194184,0.952898377 9.05477678,1.34008924 9.35462137,1.68425889 C9.59021355,1.94238613 9.89005814,1.98540734 10.2327377,2.00691794 C13.2311836,2.17900277 15.5014355,3.55568138 17.0006585,6.17997499 C17.6646,7.34154757 17.9644446,8.58916256 17.9858621,9.92281997 C18.0072796,10.5466275 18.435629,10.9338183 19.0567356,10.9123077 C19.6564248,10.8907971 20.0205218,10.4820957 19.9991044,9.85828816 C19.9134345,7.16946274 18.9282308,4.86782818 16.8507362,2.71676785 C16.5508916,2.48015121 16.0368723,2.02842854 15.480018,1.66274829 C13.8522902,0.58721812 12.0532227,0.0279424335 10.1042328,0.00643183013 C9.67588343,-0.0365893765 9.35462137,0.13549545 9.1832816,0.544196914 Z M8.99052436,5.01840241 C9.09761172,5.44861447 9.46170872,5.74976292 9.95431055,5.74976292 C11.068019,5.77127352 12.0532227,6.11544318 12.8885041,6.8898249 C13.7880378,7.72873843 14.2163872,8.78275799 14.2592222,10.030373 C14.2592222,10.245479 14.3448921,10.5036063 14.4733969,10.6756911 C14.751824,11.0413713 15.2230084,11.1274138 15.6513578,10.9768395 C16.0368723,10.8262653 16.2724644,10.4820957 16.251047,10.030373 C16.2296295,8.30952472 15.6085228,6.84680369 14.4091445,5.57767809 C13.2097661,4.39459491 11.7319606,3.77078741 10.018563,3.72776621 C9.8472232,3.72776621 9.65446596,3.77078741 9.48312619,3.83531922 C9.07619425,4.05042526 8.88343701,4.52365853 8.99052436,5.01840241 Z"
+                                                                    id="Shape"></path>
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </a>
+                                                <p>Llámanos</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Termina canales-->
+                                </div>
+                            </div>
+    
+                            <div id="info_clc" class="card-blue p-5 align-items-center">
+                                <div class="overlay">
+                                    <div class="card-desc">
+                                        <div class="row">
+                                            <div class="titulo-frmt text-center">
+                                                <i class="size-calc icon-u-informacion"></i>
+                                                <p class="tit-desc">
+                                                    ¿Tienes alguna duda?
+                                                </p>
+                                                <input type="hidden" id="seleccionaProducto" value = '{{ProductObject['slug']}}'>                                            
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="titulo-frmt text-center">
+                                                <p class="subtit-desc">
+                                                    ¡Estamos para ayudarte! Déjanos tus datos y un asesor se pondrá en contacto contigo
+                                                </p>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="secc-zaul-res" id="paso">
+                                <form id="form_calculadora" class="hs-forms-calc" autocomplete="on">
+                                    <div id="paso1_form">
+                                        <div class="form" id="gpo_firstname">
+                                            <div class="form-group floating"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-usuario.png" class="nvosIconos"><input
+                                                    oninput='clearstring("firstname")' type="text"
+                                                    class="floating form-control form-calculadora" id="firstname"
+                                                    name="firstname" required="true" value="" placeholder=""
+                                                    onkeypress="return 64<event.charCode&&event.charCode<91||96<event.charCode&&event.charCode<123||241==event.charCode||209==event.charCode||32==event.charCode||225==event.charCode||233==event.charCode||237==event.charCode||243==event.charCode||250==event.charCode||193==event.charCode||201==event.charCode||205==event.charCode||211==event.charCode||218==event.charCode">
+                                                <label for="Nombre(s)">* Nombre:</label>
+                                            </div><label for="error_firstname" class="hidden error-form"
+                                                id="error_nombre"></label>
+                                        </div>
+                                        <div class="form">
+                                            <div class="form-group floating" id="gpo_lastname"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-paterno.png" class="nvosIconos"><input
+                                                    oninput='clearstring("lastname")' type="text"
+                                                    class="floating form-control form-calculadora" id="lastname"
+                                                    name="lastname" required="true" value="" placeholder=""
+                                                    onkeypress="return 64<event.charCode&&event.charCode<91||96<event.charCode&&event.charCode<123||241==event.charCode||209==event.charCode||32==event.charCode||225==event.charCode||233==event.charCode||237==event.charCode||243==event.charCode||250==event.charCode||193==event.charCode||201==event.charCode||205==event.charCode||211==event.charCode||218==event.charCode"><label
+                                                    for="apellidos">* Apellido paterno:</label>
+                                            </div><label for="error_lastname" class="hidden error-form"
+                                                id="error_lastname"></label>
+                                        </div>
+                                        <div class="form">
+                                            <div class="form-group floating" id="gpo_lastname_m"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-materno.png" class="nvosIconos"><input
+                                                    oninput='clearstring("lastname_m")' type="text"
+                                                    class="floating form-control form-calculadora" id="lastname_m"
+                                                    name="lastname_m" required="true" value="" placeholder=""
+                                                    onkeypress="return 64<event.charCode&&event.charCode<91||96<event.charCode&&event.charCode<123||241==event.charCode||209==event.charCode||32==event.charCode||225==event.charCode||233==event.charCode||237==event.charCode||243==event.charCode||250==event.charCode||193==event.charCode||201==event.charCode||205==event.charCode||211==event.charCode||218==event.charCode"><label
+                                                    for="apellidos">* Apellido materno:</label>
+                                            </div><label for="error_lastname" class="hidden error-form"
+                                                id="error_lastname_m"></label>
+                                        </div>
+                                        <div class="form">
+                                            <div class="form-group floating" id="gpo_email"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-correo.png" class="nvosIconos"><input oninput='emaillower("email")'
+                                                    type="text" class="floating form-control form-calculadora email"
+                                                    id="email" name="email" required="true" value="" placeholder=""><label
+                                                    for="Correo Electrónico">* Correo Electrónico:</label>
+                                            </div><label for="error_email" class="hidden error-form"
+                                                id="error_email"></label>
+                                        </div>
+                                        <div class="form">
+                                            <div class="form-group floating" id="gpo_phone"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-phone.png" class="nvosIconos"><input oninput='clearnumber("phone_calc")'
+                                                    type="tel" class="floating form-control form-calculadora"
+                                                    id="phone_calc" name="phone" required="true" value=""
+                                                    placeholder=""><label for="Teléfono a 10 dígitos">* Teléfono a 10
+                                                    dígitos</label>
+                                            </div><label for="error_phone" class="hidden error-form"
+                                                id="error_phone"></label>
+                                        </div>
+                                        <!--<div class="botn-div">
+                                            <div class="btn btn-primary btn-frm m-0" id="paso1">CONTINUAR</div>
+                                            <div class="loader hidden" id="l-solicitar">Loading...</div>
+                                        </div>-->
+                                    </div>
+                                    <div id="paso2_form" class="hs-forms">
+                                        <div class="container-fluid">
+                                            <div class="row sProg">
+                                                <div class="cont d-none" id="cont">
+                                                    <div class="btn-f" id="switch">
+                                                        <div class="f1"></div>
+                                                        <div class="f2"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mg-paso2">
+                                                    <div class="form-select">
+                                                        <div class="form-group blSelector" id="gpo_nivel_de_interes">
+                                                            <!--<label for="slc_nivel_de_interes" class="subtitulo">Selecciona
+                                                                el <span class="sub1">grado</span> de estudios</label>-->
+                                                            <div class="cont-prepa">
+                                                                <div id="icon-nivel" class="PREPA"></div>
+                                                            </div><select data-clarity-unmask="true"
+                                                                class="form-control w-98" id="slc_nivel_de_interes"
+                                                                name="nivel_de_interes" required="" type="select"></select>
+                                                            <div class="loader hidden" id="l-campus">Loading...</div>
+                                                        </div><label for="error_nivel" class="hidden error-form-select"
+                                                            id="error_nivel">Selecciona una opción.</label>
+                                                    </div>
+                                                    <div class="form-select hidden" id="gpo_diploma_hs">
+                                                        <div class="form-group diploma"> 
+                                                        <!--<label class="lab-tit">¿Cuentas con tu <span class="sub1">título</span> de licenciatura o esta en trámite?</label>-->
+                                                            <div class="cont-prepa">
+                                                                <div id="icon-programa" class="PROGRAMA"></div>
+                                                            </div>
+                                                            <select class="form-control w-98" id="slc_diploma_hs_"
+                                                                name="diploma_hs" type="select">
+                                                                <option value="" selected="selected" disabled="disabled">
+                                                                ¿Cuentas con tu título de licenciatura?</option>
+                                                                <option value="1">SI</option>
+                                                                <option value="2">NO</option>
+                                                            </select>
+                                                        </div>
+                                                        <label for="error_nivel" class="hidden error-form-select"
+                                                            id="error_Diploma">Selecciona una opción.</label>
+                                                        <label for="error_programa" class="hidden error-form-select error-form-mol"
+                                                            id="error_programa2">Selecciona una opción.</label>
+                                                    </div>                                                
+                                                    <div class="form-select" id="gpo_campus_interes">
+                                                        <div class="form-group">
+                                                            <!--<label for="slc_nivel_de_interes"
+                                                                class="subtituloCam">Selecciona el <span
+                                                                    class="sub1">campus</span> de tu interés</label>-->
+                                                            <div class="cont-prepa">
+                                                                <div id="icon-campus" class="icon-u-estado"></div>
+                                                            </div><select data-clarity-unmask="true"
+                                                                class="form-control w-98" id="slc_campus_interes"
+                                                                name="campus_interes" required="" type="select">
+                                                                <option value="" selected="selected" disabled="disabled">
+                                                                    -Selecciona una opción-</option>
+                                                            </select>
+                                                            <div class="loader hidden" id="l-programas">Loading...</div>
+                                                        </div>
+                                                        <label for="error_campus" class="hidden error-form-select"
+                                                            id="error_campus">Selecciona una opción.</label>
+                                                        <label for="error_campus" class="error-form-select" id="alertas"></label>
+                                                    </div>
+                                                    <div class="form-select" id="gpo_programa_hs">
+                                                        <div class="form-group">
+                                                            <div class="cont-prepa icn-pgr">
+                                                                <div id="icon-programa" class="PROGRAMA"></div>
+                                                            </div>
+                                                                <select data-clarity-unmask="true"
+                                                                class="form-control w-98" id="slc_programa"
+                                                                name="programa_hs" type="select" required=""
+                                                                data-trigger>
+                                                                    <option value="{{module.selec_Prod}}" selected="selected" disabled="disabled">{{module.selec_Prod}}</option>                                                           
+                                                                </select>
+                                                        </div><label for="error_programa" class="hidden error-form-select"
+                                                            id="error_programa">Selecciona una opción.</label>
+                                                    </div>
+                                                    <!--Se comenta para ocultar la seleccion de ciclo LRA 22052024
+                                                    <div class="form g-ciclo" id="gpo_ciclo">
+                                                        <div class="form-group hidden" id="bloqueCiclo">
+                                                            <label for="slc_ciclo"
+                                                                class="subtituloCiclo">¿Cuando quieres <span
+                                                                    class="sub1">iniciar</span>?</label>
+                                                            <div class="cont-prepa">
+                                                                <div id="icon-ciclo" class="icon-ciclo"></div>
+                                                            </div>
+                                                            <select data-clarity-unmask="true"
+                                                                class="form-control w-98" id="slc_ciclo_hs"
+                                                                name="ciclo_interes" required="" type="select">
+                                                                <option value="" selected="selected" disabled="disabled">
+                                                                    -Selecciona una opción-</option>
+                                                                    <option value="1">Mayo</option>
+                                                                    <option value="2">Septiembre</option>
+                                                            </select>
+                                                            <div class="loader hidden" id="l-programas">Loading...</div>
+                                                        </div>
+                                                        <label for="error_ciclo" class="hidden error-form"
+                                                            id="error_ciclo">Selecciona una opción.</label>
+                                                        <label for="error_ciclo" class="error-form" id="alertas"></label>
+                                                    </div>-->
+                                                    <!--<div class="form" id="gpo_ciclo_">
+                                                        <div class="form-group hidden"><select class="form-control w-98"
+                                                                id="slc_ciclo_hs" name="programa_hs" type="select"
+                                                                required="">
+                                                                <option value="" selected="selected" disabled="disabled">-
+                                                                    ¿Cuando quieres iniciar? -</option>
+                                                            </select></div><label for="error_ciclo"
+                                                            class="hidden error-form" id="error_ciclo">Selecciona una
+                                                            opción.</label>
+                                                    </div>-->
+                                                    <div class="form hidden chk-rev" id="gpo_revalidaci_n_equivalencias_">
+                                                        <div class="m-auto"></div><input type="checkbox" class="check check-beca" id="revalidaci_n_equivalencias_"
+                                                            name="revalidaci_n_equivalencias" value="Si"><label class="label-form label-beca"
+                                                            for="revalidaci_n_equivalencias_">¿Quieres revalidar estudios previos o cambiarte de escuela?</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <frm-politicas-condiciones _nghost-c7="">
+                                            <div _ngcontent-c7="" class="frm-politicas" id="frm_politicas_y_condiciones">
+                                                <label _ngcontent-c7="" class="politicas light frm-tradicional-cl my-3"
+                                                    id="form_politicas">Al hacer clic en<span _ngcontent-c7=""
+                                                        id="continuar_politicas">"Solicita Información"</span>, reconoces haber leído
+                                                    las<a _ngcontent-c7=""
+                                                        href="https://www.unitec.mx/politicas-de-privacidad/"
+                                                        target="_blank">Políticas de Privacidad</a>y confirmas estar de
+                                                    acuerdo con el uso de ellas, así como los<a _ngcontent-c7=""
+                                                        href="https://www.unitec.mx/terminos-y-condiciones/"
+                                                        target="_blank">Términos y Condiciones</a>del sitio</label>
+                                            </div>
+                                        </frm-politicas-condiciones>
+                                        <div class="botn-div">
+                                            <div class="btn btn-primary btn-frm m-0" id="paso2">Solicita Información</div>
+                                            <div class="loader hidden" id="l-solicitar">Loading...</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>function clearstring(e) { var t = duble_spaces(remove_special(document.getElementById("" + e).value)); document.getElementById(e).value = t } function remove_special(e) { return e.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ ]/g, "") } function duble_spaces(e) { return e.replace(/\s{2,}/g, " ") } function emaillower(e) { var t = document.getElementById(e), n = t.value.toLowerCase(); n = n.replace(/ñ/g, ""); if (/^[a-zA-Z0-9\s]*$/.test(n)) t.value = n; else { var a = n.replace(/[áÁéÉíÍóÓúÚüÜ]/g, ""); t.value = a } } function tipo_text(e) { return e.replace(/[^0-9]/g, "").substring(0, 10) } function clearnumber(e) { var t = tipo_text(document.getElementById("" + e).value); document.getElementById(e).value = t }</script>
+        {{ require_js(get_asset_url('../../js/formularios/form-expuesto-producto-v2/blacklist.js'), { position: "footer", defer: true }) }}
+        {{ require_js(get_asset_url('../../js/formularios/form-expuesto-producto-v2/form_expuesto_producto.js'), { position: "footer", defer: true }) }}
+    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/_frm-tradicional.css")) %}
+    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/_general.css")) %}
+    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/_header.css")) %}
+    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/icon_u.css")) %}
+    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/icon_u.min.css")) %}
+    
+    

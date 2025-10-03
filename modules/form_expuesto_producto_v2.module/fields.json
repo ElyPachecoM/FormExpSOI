@@ -1,0 +1,98 @@
+[ {
+  "id" : "de33d454-5718-ee36-d750-41630e79cae0",
+  "name" : "styles",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "7a2806c5-1b31-4fe6-14f2-f81573f5a055",
+    "name" : "align",
+    "label" : "Align",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "styles.align_items_desktop",
+      "name" : "desktop",
+      "label" : "Align Items desktop",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "textalignment",
+      "display_width" : null,
+      "default" : { }
+    }, {
+      "id" : "styles.align_items_tablet",
+      "name" : "tablet",
+      "label" : "Align Items Tablet",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "textalignment",
+      "display_width" : null,
+      "default" : { }
+    }, {
+      "id" : "styles.align_items_moble",
+      "name" : "mobile",
+      "label" : "Align Items Mobile",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "textalignment",
+      "display_width" : null,
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "desktop" : { },
+      "tablet" : { },
+      "mobile" : { }
+    }
+  }, {
+    "id" : "14c7fe90-7f60-e660-36aa-0c8c0bc37ec0",
+    "name" : "margin_padding",
+    "label" : "Margin/Padding",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "ef5e0f35-bad3-b03d-0694-d024a1f4dfc1",
+      "name" : "spacing",
+      "label" : "spacing",
+      "help_text" : "Add space inside or outside the module container, separate modules from the same column",
+      "required" : false,
+      "locked" : false,
+      "type" : "spacing",
+      "display_width" : null,
+      "default" : { }
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "spacing" : { }
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "align" : {
+      "desktop" : { },
+      "tablet" : { },
+      "mobile" : { }
+    },
+    "margin_padding" : {
+      "spacing" : { }
+    }
+  }
+} ]
