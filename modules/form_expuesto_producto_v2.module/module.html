@@ -131,16 +131,13 @@
                                 </div>
                             </div>
     
-                            <!-- Nuevo Header Limpio -->
                             <div id="info_clc" class="new-header-container">
                                 <div class="header-content">
-                                    <!-- Título Centrado -->
                                     <div class="main-title-container">
                                         <h2 class="tit-desc">Más información</h2>
                                         <input type="hidden" id="seleccionaProducto" value='{{ProductObject['slug']}}'>
                                     </div>
                                     
-                                    <!-- Subtítulo Alineado a la Izquierda -->
                                     <div class="subtitle-container">
                                         <p class="subtit-desc">
                                             <img src="https://www.unitec.mx/hubfs/SOI/icons/ios-bulb.svg" alt="icon" style="width: 34px; height: 34px; margin-right: 0px;"> Envíanos tus datos y te contactamos
@@ -231,7 +228,6 @@
 
                                         <!-- Botón Submit + Políticas -->
                                         <div class="submit-section" id="submit-section" style="grid-column: 1 / -1; text-align: center;">
-                                            <!-- Mensaje Gracias (oculto por defecto) -->
                                             <div class="gracias-message" id="gracias-message">
                                                 <img src="https://www.unitec.mx/hubfs/SOI/icons/check-icon.png" alt="check" class="gracias-icon">
                                                 <p class="gracias-text">
@@ -239,7 +235,6 @@
                                                 </p>
                                             </div>
                                             
-                                            <!-- Contenedor del botón y políticas -->
                                             <div class="submit-wrapper">
                                                 <button type="submit" class="btn-submit-orange btn-frm" id="paso2">
                                                     Quiero recibir información ahora
@@ -419,20 +414,16 @@
                     const img = this.querySelector('img');
                     const textSpan = this.querySelector('.btn-text');
                     
-                    // Toggle de selección - permitir múltiples
                     if (isSelected) {
-                        // Deseleccionar
                         this.classList.remove('selected');
                         img.src = this.dataset.icon;
                         if (textSpan) textSpan.style.display = '';
                     } else {
-                        // Seleccionar
                         this.classList.add('selected');
                         img.src = this.dataset.checkIcon;
                         if (textSpan) textSpan.style.display = 'none';
                     }
                     
-                    // Actualizar valores y mensaje
                     const selectedButtons = document.querySelectorAll('.btn-pref.selected');
                     const selectedLabels = [];
                     const selectedValues = [];
