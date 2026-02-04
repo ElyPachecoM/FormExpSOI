@@ -131,25 +131,17 @@
                                 </div>
                             </div>
     
-                            <div id="info_clc" class="card-blue p-5 align-items-center">
-                                <div class="overlay">
-                                    <div class="card-desc">
-                                        <div class="row">
-                                            <div class="titulo-frmt text-center">
-                                                <i class="size-calc icon-u-informacion"></i>
-                                                <p class="tit-desc">
-                                                    ¿Tienes alguna duda?
-                                                </p>
-                                                <input type="hidden" id="seleccionaProducto" value = '{{ProductObject['slug']}}'>                                            
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="titulo-frmt text-center">
-                                                <p class="subtit-desc">
-                                                    ¡Estamos para ayudarte! Déjanos tus datos y un asesor se pondrá en contacto contigo
-                                                </p>
-                                            </div>
-                                        </div>                                        
+                            <div id="info_clc" class="new-header-container">
+                                <div class="header-content">
+                                    <div class="main-title-container">
+                                        <h2 class="tit-desc">Más información</h2>
+                                        <input type="hidden" id="seleccionaProducto" value='{{ProductObject['slug']}}'>
+                                    </div>
+                                    
+                                    <div class="subtitle-container">
+                                        <p class="subtit-desc">
+                                            <img src="https://www.unitec.mx/hubfs/SOI/icons/ios-bulb.svg" alt="icon" style="width: 34px; height: 34px; margin-right: 0px;"> Envíanos tus datos y te contactamos
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -157,58 +149,112 @@
                             <div class="secc-zaul-res" id="paso">
                                 <form id="form_calculadora" class="hs-forms-calc" autocomplete="on">
                                     <div id="paso1_form">
-                                        <div class="form" id="gpo_firstname">
-                                            <div class="form-group floating"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-usuario.png" class="nvosIconos"><input
-                                                    oninput='clearstring("firstname")' type="text"
-                                                    class="floating form-control form-calculadora" id="firstname"
-                                                    name="firstname" required="true" value="" placeholder=""
+                                        <div class="form">
+                                            <div class="form-group">
+                                                <input oninput='clearstring("firstname")' type="text"
+                                                    class="form-control form-calculadora" id="firstname"
+                                                    name="firstname" required="true" value="" placeholder="Nombre"
                                                     onkeypress="return 64<event.charCode&&event.charCode<91||96<event.charCode&&event.charCode<123||241==event.charCode||209==event.charCode||32==event.charCode||225==event.charCode||233==event.charCode||237==event.charCode||243==event.charCode||250==event.charCode||193==event.charCode||201==event.charCode||205==event.charCode||211==event.charCode||218==event.charCode">
-                                                <label for="Nombre(s)">* Nombre:</label>
-                                            </div><label for="error_firstname" class="hidden error-form"
-                                                id="error_nombre"></label>
+                                            </div>
+                                            <label for="error_firstname" class="hidden error-form" id="error_nombre"></label>
                                         </div>
                                         <div class="form">
-                                            <div class="form-group floating" id="gpo_lastname"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-paterno.png" class="nvosIconos"><input
-                                                    oninput='clearstring("lastname")' type="text"
-                                                    class="floating form-control form-calculadora" id="lastname"
-                                                    name="lastname" required="true" value="" placeholder=""
-                                                    onkeypress="return 64<event.charCode&&event.charCode<91||96<event.charCode&&event.charCode<123||241==event.charCode||209==event.charCode||32==event.charCode||225==event.charCode||233==event.charCode||237==event.charCode||243==event.charCode||250==event.charCode||193==event.charCode||201==event.charCode||205==event.charCode||211==event.charCode||218==event.charCode"><label
-                                                    for="apellidos">* Apellido paterno:</label>
-                                            </div><label for="error_lastname" class="hidden error-form"
-                                                id="error_lastname"></label>
+                                            <div class="form-group" id="gpo_lastname">
+                                                <input oninput='clearstring("lastname")' type="text"
+                                                    class="form-control form-calculadora" id="lastname"
+                                                    name="lastname" required="true" value="" placeholder="Apellido paterno"
+                                                    onkeypress="return 64<event.charCode&&event.charCode<91||96<event.charCode&&event.charCode<123||241==event.charCode||209==event.charCode||32==event.charCode||225==event.charCode||233==event.charCode||237==event.charCode||243==event.charCode||250==event.charCode||193==event.charCode||201==event.charCode||205==event.charCode||211==event.charCode||218==event.charCode">
+                                            </div>
+                                            <label for="error_lastname" class="hidden error-form" id="error_lastname"></label>
                                         </div>
                                         <div class="form">
-                                            <div class="form-group floating" id="gpo_lastname_m"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-materno.png" class="nvosIconos"><input
-                                                    oninput='clearstring("lastname_m")' type="text"
-                                                    class="floating form-control form-calculadora" id="lastname_m"
-                                                    name="lastname_m" required="true" value="" placeholder=""
-                                                    onkeypress="return 64<event.charCode&&event.charCode<91||96<event.charCode&&event.charCode<123||241==event.charCode||209==event.charCode||32==event.charCode||225==event.charCode||233==event.charCode||237==event.charCode||243==event.charCode||250==event.charCode||193==event.charCode||201==event.charCode||205==event.charCode||211==event.charCode||218==event.charCode"><label
-                                                    for="apellidos">* Apellido materno:</label>
-                                            </div><label for="error_lastname" class="hidden error-form"
-                                                id="error_lastname_m"></label>
+                                            <div class="form-group" id="gpo_lastname_m">
+                                                <input oninput='clearstring("lastname_m")' type="text"
+                                                    class="form-control form-calculadora" id="lastname_m"
+                                                    name="lastname_m" required="true" value="" placeholder="Apellido materno"
+                                                    onkeypress="return 64<event.charCode&&event.charCode<91||96<event.charCode&&event.charCode<123||241==event.charCode||209==event.charCode||32==event.charCode||225==event.charCode||233==event.charCode||237==event.charCode||243==event.charCode||250==event.charCode||193==event.charCode||201==event.charCode||205==event.charCode||211==event.charCode||218==event.charCode">
+                                            </div>
+                                            <label for="error_lastname" class="hidden error-form" id="error_lastname_m"></label>
                                         </div>
                                         <div class="form">
-                                            <div class="form-group floating" id="gpo_email"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-correo.png" class="nvosIconos"><input oninput='emaillower("email")'
-                                                    type="text" class="floating form-control form-calculadora email"
-                                                    id="email" name="email" required="true" value="" placeholder=""><label
-                                                    for="Correo Electrónico">* Correo Electrónico:</label>
-                                            </div><label for="error_email" class="hidden error-form"
-                                                id="error_email"></label>
+                                            <div class="form-group" id="gpo_email">
+                                                <input oninput='emaillower("email")'
+                                                    type="text" class="form-control form-calculadora email"
+                                                    id="email" name="email" required="true" value="" placeholder="Correo electrónico">
+                                            </div>
+                                            <label for="error_email" class="hidden error-form" id="error_email"></label>
                                         </div>
                                         <div class="form">
-                                            <div class="form-group floating" id="gpo_phone"><img src="https://287524.fs1.hubspotusercontent-na1.net/hubfs/287524/01.UNITEC/iconos/icono-naranja-phone.png" class="nvosIconos"><input oninput='clearnumber("phone_calc")'
-                                                    type="tel" class="floating form-control form-calculadora"
+                                            <div class="form-group" id="gpo_phone">
+                                                <input oninput='clearnumber("phone_calc")'
+                                                    type="tel" class="form-control form-calculadora"
                                                     id="phone_calc" name="phone" required="true" value=""
-                                                    placeholder=""><label for="Teléfono a 10 dígitos">* Teléfono a 10
-                                                    dígitos</label>
-                                            </div><label for="error_phone" class="hidden error-form"
-                                                id="error_phone"></label>
+                                                    placeholder="Teléfono 10 dígitos">
+                                            </div>
+                                            <label for="error_phone" class="hidden error-form" id="error_phone"></label>
                                         </div>
-                                        <!--<div class="botn-div">
-                                            <div class="btn btn-primary btn-frm m-0" id="paso1">CONTINUAR</div>
-                                            <div class="loader hidden" id="l-solicitar">Loading...</div>
-                                        </div>-->
+                                        
+                                        <!-- Botones de preferencia de contacto -->
+                                        <div class="contact-preference-section" style="grid-column: 1 / -1; width: 100%; margin-top: 20px;">
+                                            <p class="preference-question" style="text-align: left; font-weight: 700; color: #043F7C; margin-bottom: 10px;">¿Como prefieres que te contactemos?</p>
+                                            <div class="preference-buttons-container">
+                                                <button type="button" class="btn-pref btn-pref-phone" 
+                                                    data-value="telefono"
+                                                    data-icon="https://www.unitec.mx/hubfs/SOI/icons/ios-call.svg"
+                                                    data-check-icon="https://www.unitec.mx/hubfs/SOI/icons/checkmark_tel.svg"
+                                                    data-label="Teléfono">
+                                                    <img src="https://www.unitec.mx/hubfs/SOI/icons/ios-call.svg" alt="Teléfono" style="width: 27px;height: 27px;">
+                                                    <span class="btn-text">Teléfono</span>
+                                                </button>
+                                                <button type="button" class="btn-pref btn-pref-whatsapp"
+                                                    data-value="whatsapp"
+                                                    data-icon="https://www.unitec.mx/hubfs/SOI/icons/whatsapp_white_form.svg"
+                                                    data-check-icon="https://www.unitec.mx/hubfs/SOI/icons/checkmark-outline_whats.svg"
+                                                    data-label="WhatsApp">
+                                                    <img src="https://www.unitec.mx/hubfs/SOI/icons/whatsapp_white_form.svg" alt="WhatsApp" style="width: 27px;height: 27px;">
+                                                    <span class="btn-text">WhatsApp</span>
+                                                </button>
+                                                <button type="button" class="btn-pref btn-pref-email"
+                                                    data-value="email"
+                                                    data-icon="https://www.unitec.mx/hubfs/SOI/icons/mail-outline-Unic.svg"
+                                                    data-check-icon="https://www.unitec.mx/hubfs/SOI/icons/checkmark-outline_email.svg"
+                                                    data-label="Correo">
+                                                    <img src="https://www.unitec.mx/hubfs/SOI/icons/mail-outline-Unic.svg" alt="Correo" style="width: 27px;height: 27px;">
+                                                    <span class="btn-text">Correo</span>
+                                                </button>
+                                            </div>
+                                            <input type="hidden" id="contact_preference" name="contact_preference" value="">
+                                        </div>
+
+                                        <!-- Botón Submit + Políticas -->
+                                        <div class="submit-section" id="submit-section" style="grid-column: 1 / -1; text-align: center;">
+                                            <div class="gracias-message" id="gracias-message">
+                                                <img src="https://www.unitec.mx/hubfs/SOI/icons/check-icon.png" alt="check" class="gracias-icon">
+                                                <p class="gracias-text">
+                                                    <strong>¡Gracias!</strong> Podemos comunicarnos contigo por <span id="canal-seleccionado">WhatsApp</span>. Si prefieres, ¡Puedes elegir otro canal!
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="submit-wrapper">
+                                                <button type="submit" class="btn-submit-orange btn-frm" id="paso2">
+                                                    Quiero recibir información ahora
+                                                </button>
+                                                <div class="loader hidden" id="l-solicitar">Loading...</div>
+                                                
+                                                <div class="frm-politicas" style="margin-top: 15px;">
+                                                    <p class="politicas" style="font-size: 11px; color: #043F7C;">
+                                                        Al continuar, aceptas nuestras <a href="https://www.unitec.mx/politicas-de-privacidad/" target="_blank" style="color: #043F7C;">Políticas de privacidad</a> y <a href="https://www.unitec.mx/terminos-y-condiciones/" target="_blank" style="color: #043F7C;">Términos</a>.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
+                                    
+                                    <div id="paso2_form" class="hs-forms" style="display:none;">
+                                        <div class="container-fluid">
+                                            <div class="row sProg">
+                                                <div class="cont d-none" id="cont">
                                     <div id="paso2_form" class="hs-forms">
                                         <div class="container-fluid">
                                             <div class="row sProg">
@@ -352,12 +398,76 @@
         </div>
         
         <script>function clearstring(e) { var t = duble_spaces(remove_special(document.getElementById("" + e).value)); document.getElementById(e).value = t } function remove_special(e) { return e.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ ]/g, "") } function duble_spaces(e) { return e.replace(/\s{2,}/g, " ") } function emaillower(e) { var t = document.getElementById(e), n = t.value.toLowerCase(); n = n.replace(/ñ/g, ""); if (/^[a-zA-Z0-9\s]*$/.test(n)) t.value = n; else { var a = n.replace(/[áÁéÉíÍóÓúÚüÜ]/g, ""); t.value = a } } function tipo_text(e) { return e.replace(/[^0-9]/g, "").substring(0, 10) } function clearnumber(e) { var t = tipo_text(document.getElementById("" + e).value); document.getElementById(e).value = t }</script>
+        
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const prefButtons = document.querySelectorAll('.btn-pref');
+            const graciasMessage = document.getElementById('gracias-message');
+            const submitSection = document.getElementById('submit-section');
+            const canalSpan = document.getElementById('canal-seleccionado');
+            const hiddenInput = document.getElementById('contact_preference');
+            const graciasText = document.querySelector('.gracias-text');
+            
+            prefButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const isSelected = this.classList.contains('selected');
+                    const img = this.querySelector('img');
+                    const textSpan = this.querySelector('.btn-text');
+                    
+                    if (isSelected) {
+                        this.classList.remove('selected');
+                        img.src = this.dataset.icon;
+                        if (textSpan) textSpan.style.display = '';
+                    } else {
+                        this.classList.add('selected');
+                        img.src = this.dataset.checkIcon;
+                        if (textSpan) textSpan.style.display = 'none';
+                    }
+                    
+                    const selectedButtons = document.querySelectorAll('.btn-pref.selected');
+                    const selectedLabels = [];
+                    const selectedValues = [];
+                    
+                    selectedButtons.forEach(function(selectedBtn) {
+                        selectedLabels.push(selectedBtn.dataset.label);
+                        selectedValues.push(selectedBtn.dataset.value);
+                    });
+                    
+                    if (selectedLabels.length > 0) {
+                        graciasMessage.classList.add('visible');
+                        submitSection.classList.add('with-gracias');
+                        
+                        let formattedText = '';
+                        if (selectedLabels.length === 1) {
+                            formattedText = selectedLabels[0];
+                        } else if (selectedLabels.length === 2) {
+                            formattedText = selectedLabels.join(' y ');
+                        } else {
+                            formattedText = selectedLabels.slice(0, -1).join(', ') + ' y ' + selectedLabels[selectedLabels.length - 1];
+                        }
+                        
+                        canalSpan.textContent = formattedText;
+                        hiddenInput.value = selectedValues.join(',');
+                        
+                        if (selectedLabels.length === 3) {
+                            graciasText.innerHTML = '<strong>¡Gracias!</strong> Podemos comunicarnos contigo por: <span id="canal-seleccionado">' + formattedText + '</span>';
+                        } else {
+                            graciasText.innerHTML = '<strong>¡Gracias!</strong> Podemos comunicarnos contigo por <span id="canal-seleccionado">' + formattedText + '</span>. Si prefieres, ¡Puedes elegir otro canal!';
+                        }
+                    } else {
+                        graciasMessage.classList.remove('visible');
+                        submitSection.classList.remove('with-gracias');
+                        hiddenInput.value = '';
+                    }
+                });
+            });
+        });
+        </script>
         {{ require_js(get_asset_url('../../js/formularios/form-expuesto-producto-v2/blacklist.js'), { position: "footer", defer: true }) }}
         {{ require_js(get_asset_url('../../js/formularios/form-expuesto-producto-v2/form_expuesto_producto.js'), { position: "footer", defer: true }) }}
-    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/_frm-tradicional.css")) %}
-    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/_general.css")) %}
-    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/_header.css")) %}
-    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/icon_u.css")) %}
-    {% do footerCss.append(get_asset_url("../../css/formularios/form-expuesto-producto-v2/icon_u.min.css")) %}
+        {{ require_css(get_asset_url("../../css/formularios/form-expuesto-producto-v2/_frm-tradicional.css")) }}
+        {{ require_css(get_asset_url("../../css/formularios/form-expuesto-producto-v2/_general.css")) }}
+        {{ require_css(get_asset_url("../../css/formularios/form-expuesto-producto-v2/icon-u.css")) }}
+        {{ require_css(get_asset_url("../../css/formularios/form-expuesto-producto-v2/icon-u.min.css")) }}
     
     
