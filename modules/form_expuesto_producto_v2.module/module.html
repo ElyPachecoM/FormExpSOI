@@ -214,16 +214,10 @@
                                                     <img src="https://www.unitec.mx/hubfs/SOI/icons/whatsapp_white_form.svg" alt="WhatsApp" style="width: 27px;height: 27px;">
                                                     <span class="btn-text">WhatsApp</span>
                                                 </button>
-                                                <button type="button" class="btn-pref btn-pref-email"
-                                                    data-value="email"
-                                                    data-icon="https://www.unitec.mx/hubfs/SOI/icons/mail-outline-Unic.svg"
-                                                    data-check-icon="https://www.unitec.mx/hubfs/SOI/icons/checkmark-outline_email.svg"
-                                                    data-label="Correo">
-                                                    <img src="https://www.unitec.mx/hubfs/SOI/icons/mail-outline-Unic.svg" alt="Correo" style="width: 27px;height: 27px;">
-                                                    <span class="btn-text">Correo</span>
-                                                </button>
+
                                             </div>
                                             <input type="hidden" id="contact_preference" name="contact_preference" value="">
+                                            <label class="hidden error-form error-preference" id="error_preference">Selecciona al menos una opción.</label>
                                         </div>
 
                                         <!-- Botón Submit + Políticas -->
@@ -433,6 +427,12 @@
                         selectedValues.push(selectedBtn.dataset.value);
                     });
                     
+                    // Limpiar error de preferencia al seleccionar
+                    var errorPref = document.getElementById('error_preference');
+                    if (errorPref) {
+                        errorPref.classList.add('hidden');
+                    }
+                    
                     if (selectedLabels.length > 0) {
                         graciasMessage.classList.add('visible');
                         submitSection.classList.add('with-gracias');
@@ -449,7 +449,7 @@
                         canalSpan.textContent = formattedText;
                         hiddenInput.value = selectedValues.join(',');
                         
-                        if (selectedLabels.length === 3) {
+                        if (selectedLabels.length === 2) {
                             graciasText.innerHTML = '<strong>¡Gracias!</strong> Podemos comunicarnos contigo por: <span id="canal-seleccionado">' + formattedText + '</span>';
                         } else {
                             graciasText.innerHTML = '<strong>¡Gracias!</strong> Podemos comunicarnos contigo por <span id="canal-seleccionado">' + formattedText + '</span>. Si prefieres, ¡Puedes elegir otro canal!';

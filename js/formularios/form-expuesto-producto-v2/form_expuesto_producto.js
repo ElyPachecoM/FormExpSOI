@@ -2840,7 +2840,34 @@ if (document.getElementById('paso2')) {
                 }
             }
         }
-        if (name_envio && mail_envio && apps_envio && phone_envio && apms_envio && programa && campus) {
+        // Validación de preferencia de contacto
+        var pref_envio = false;
+        var prefValue = document.getElementById('contact_preference') ? document.getElementById('contact_preference').value : '';
+        if (prefValue === '') {
+            var errorPref = document.getElementById('error_preference');
+            if (errorPref) {
+                errorPref.classList.remove('hidden');
+            }
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'trackerrorformGA4',
+                'error_message': 'Selecciona al menos una opción.',
+                'layer': 'datos personales',
+                'form_action': 'empty',
+                'form_field': 'frm_preferencia_contacto',
+                'form_name': 'Formulario Tradicional',
+                'form_type':'Expuesto',
+                'event_type':'user_error'
+            });
+        } else {
+            var errorPref = document.getElementById('error_preference');
+            if (errorPref) {
+                errorPref.classList.add('hidden');
+            }
+            pref_envio = true;
+        }
+
+        if (name_envio && mail_envio && apps_envio && phone_envio && apms_envio && programa && campus && pref_envio) {
             //autoselectBL
             //BLautoselect();
             /*document.getElementById('ModalCalculadoraVue').classList.remove('step1');            

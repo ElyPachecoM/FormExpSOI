@@ -271,6 +271,12 @@ button.btn-pref::before {
   width: 100% !important;
 }
 
+.error-preference {
+  top: 5px !important;
+  margin-left: 5px !important;
+  line-height: normal !important;
+}
+
 /* Inputs */
 #paso1_form .form-control {
   width: 100% !important;
@@ -311,7 +317,7 @@ button.btn-pref::before {
 
 .preference-buttons-container {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-columns: repeat(2, 1fr) !important;
   gap: 15px !important;
 }
 
@@ -339,9 +345,7 @@ button.btn-pref::before {
   background: #25d366 !important;
 }
 
-.btn-pref-email {
-  background: #0066cc !important;
-}
+
 
 /* Botón submit naranja */
 #paso2 {
@@ -395,10 +399,8 @@ button.btn-pref:hover:before,
 button.btn-pref:focus:before,
 .btn-pref.btn-pref-phone:before,
 .btn-pref.btn-pref-whatsapp:before,
-.btn-pref.btn-pref-email:before,
 .btn-pref.btn-pref-phone:hover:before,
-.btn-pref.btn-pref-whatsapp:hover:before,
-.btn-pref.btn-pref-email:hover:before {
+.btn-pref.btn-pref-whatsapp:hover:before {
   background-color: transparent !important;
   background: transparent !important;
   border: none !important;
@@ -512,9 +514,9 @@ span.btn-text:hover:before {
     margin-bottom: 15px !important;
   }
 
-  /* Botones de preferencia en 3 columnas pero más compactos */
+  /* Botones de preferencia en 2 columnas */
   .preference-buttons-container {
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px !important;
   }
 
